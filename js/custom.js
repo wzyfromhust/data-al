@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // 创建切换按钮
+    // 创建切换按钮（不再设置文本内容，使用 CSS 伪元素）
     var toggleButton = document.createElement('button');
-    toggleButton.innerHTML = '≡';
     toggleButton.className = 'sidebar-toggle';
     document.body.appendChild(toggleButton);
 
-    // 设置初始状态
+    // 设置初始状态 - 默认在桌面端显示侧边栏，移动端隐藏
     if (window.innerWidth <= 768) {
         document.body.classList.add('nav-hidden');
     }
@@ -14,6 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleButton.addEventListener('click', function(e) {
         e.preventDefault();
         document.body.classList.toggle('nav-hidden');
+    });
+
+    // 添加键盘快捷键 (Alt+S)
+    document.addEventListener('keydown', function(e) {
+        if (e.altKey && e.key === 's') {
+            e.preventDefault();
+            document.body.classList.toggle('nav-hidden');
+        }
     });
 
     // 添加移动端滑动手势支持

@@ -1,5 +1,6 @@
 .wy-nav-content {
     max-width: none !important;
+    width: 100% !important;
 }
 
 /* 调整内容区域的左右边距 */
@@ -9,58 +10,78 @@
 
 /* 调整侧边栏宽度 */
 .wy-nav-side {
-    width: 280px !important;
+    width: 260px !important;
     background: #2c3e50 !important;
     transition: transform 0.3s ease !important;
+    z-index: 1000 !important;
 }
 
 .wy-side-scroll {
-    width: 280px !important;
+    width: 260px !important;
 }
 
 .wy-nav-content-wrap {
-    margin-left: 280px !important;
+    margin-left: 260px !important;
     transition: margin-left 0.3s ease !important;
 }
 
 /* 隐藏侧边栏时的样式 */
 body.nav-hidden .wy-nav-side {
-    transform: translateX(-280px) !important;
+    transform: translateX(-260px) !important;
 }
 
 body.nav-hidden .wy-nav-content-wrap {
     margin-left: 0 !important;
 }
 
+/* 侧边栏切换按钮样式 - 更优雅的设计 */
+.sidebar-toggle {
+    position: fixed;
+    top: 70px;
+    left: 260px;
+    z-index: 1001;
+    width: 30px;
+    height: 30px;
+    background: #2980B9;
+    color: white;
+    border: none;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    padding: 0;
+}
+
+.sidebar-toggle:hover {
+    background: #3498db;
+}
+
+.sidebar-toggle:before {
+    content: "◀";
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
 body.nav-hidden .sidebar-toggle {
     left: 0 !important;
 }
 
-/* 侧边栏切换按钮样式 */
-.sidebar-toggle {
-    position: fixed;
-    top: 70px;
-    left: 280px;
-    z-index: 1000;
-    padding: 10px 15px;
-    background: #2980B9;
-    color: white;
-    border: none;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-    font-size: 20px;
-    transition: left 0.3s ease;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+body.nav-hidden .sidebar-toggle:before {
+    content: "▶";
 }
 
 /* 优化左侧导航栏样式 */
 .wy-side-nav-search {
     background-color: #3498db !important;
-    width: 280px !important;
+    width: 260px !important;
 }
 
 .wy-menu-vertical {
-    width: 280px !important;
+    width: 260px !important;
 }
 
 .wy-menu-vertical li.current {
@@ -104,7 +125,7 @@ body.nav-hidden .sidebar-toggle {
     padding: 10px 15px;
     border: none;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    width: calc(280px - 40px) !important;
+    width: calc(260px - 40px) !important;
 }
 
 /* Previous/Next 导航按钮样式 */
@@ -125,8 +146,8 @@ body.nav-hidden .sidebar-toggle {
     }
 
     .wy-nav-side {
-        width: 280px !important;
-        transform: translateX(-280px);
+        width: 260px !important;
+        transform: translateX(-260px);
     }
 
     .wy-nav-content-wrap {
@@ -136,6 +157,7 @@ body.nav-hidden .sidebar-toggle {
     .sidebar-toggle {
         top: 15px;
         left: 0;
+        border-radius: 0 3px 3px 0;
     }
 
     body:not(.nav-hidden) .wy-nav-side {
@@ -143,7 +165,7 @@ body.nav-hidden .sidebar-toggle {
     }
 
     body:not(.nav-hidden) .sidebar-toggle {
-        left: 280px;
+        left: 260px;
     }
 }
 
