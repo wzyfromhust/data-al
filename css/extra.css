@@ -7,26 +7,84 @@
     padding: 0 30px;
 }
 
-/* 优化移动设备显示 */
-@media screen and (max-width: 768px) {
-    .rst-content {
-        padding: 0 15px;
-    }
+/* 优化左侧导航栏样式 */
+.wy-nav-side {
+    background: #2c3e50 !important;
+}
+
+.wy-side-nav-search {
+    background-color: #3498db !important;
+}
+
+.wy-menu-vertical li.current {
+    background: #34495e !important;
+}
+
+.wy-menu-vertical li.current > a {
+    background: #2980b9 !important;
+    color: #fff !important;
+}
+
+.wy-menu-vertical li.toctree-l1 > a {
+    padding: 12px 15px !important;
+    color: #ecf0f1 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.wy-menu-vertical li.toctree-l2 > a {
+    padding: 8px 25px !important;
+    background: #34495e !important;
+    color: #bdc3c7 !important;
+}
+
+.wy-menu-vertical li.toctree-l2.current > a {
+    background: #2980b9 !important;
+    color: #fff !important;
+}
+
+.wy-menu-vertical li.toctree-l1:hover {
+    background: #34495e;
+}
+
+.wy-menu-vertical li.toctree-l1 > a:hover {
+    background: #2980b9 !important;
+    color: #fff !important;
+}
+
+/* 搜索框样式 */
+.wy-side-nav-search input[type="text"] {
+    border-radius: 20px;
+    padding: 10px 15px;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Previous/Next 导航按钮样式 */
+.rst-footer-buttons {
+    margin-top: 30px;
+}
+
+.rst-footer-buttons .btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: normal;
 }
 
 /* 侧边栏切换按钮样式 */
 .sidebar-toggle {
     position: fixed;
-    top: 0;
+    top: 70px;
     left: 300px;
     z-index: 1000;
     padding: 10px 15px;
     background: #2980B9;
     color: white;
     border: none;
+    border-radius: 0 4px 4px 0;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 20px;
     transition: left 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
 }
 
 /* 侧边栏动画 */
@@ -54,7 +112,12 @@ body.nav-hidden .sidebar-toggle {
 
 /* 移动端样式调整 */
 @media screen and (max-width: 768px) {
+    .rst-content {
+        padding: 0 15px;
+    }
+
     .sidebar-toggle {
+        top: 15px;
         left: 0;
     }
 
@@ -73,4 +136,32 @@ body.nav-hidden .sidebar-toggle {
     body:not(.nav-hidden) .sidebar-toggle {
         left: 300px;
     }
+}
+
+/* 当前选中项的样式 */
+.wy-menu-vertical li.current > a.current {
+    background: #2980b9 !important;
+    color: #fff !important;
+    border-right: 3px solid #ecf0f1;
+}
+
+/* 子菜单缩进和过渡效果 */
+.wy-menu-vertical li.toctree-l2 {
+    margin-left: 0;
+    transition: background 0.2s ease;
+}
+
+.wy-menu-vertical li.toctree-l2 > a {
+    position: relative;
+    padding-left: 35px !important;
+}
+
+.wy-menu-vertical li.toctree-l2 > a:before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    width: 5px;
+    height: 1px;
+    background: #bdc3c7;
 } 
