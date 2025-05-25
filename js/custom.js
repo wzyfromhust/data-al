@@ -5,8 +5,14 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleButton.className = 'sidebar-toggle';
     document.body.appendChild(toggleButton);
 
+    // 设置初始状态
+    if (window.innerWidth <= 768) {
+        document.body.classList.add('nav-hidden');
+    }
+
     // 添加点击事件
-    toggleButton.addEventListener('click', function() {
+    toggleButton.addEventListener('click', function(e) {
+        e.preventDefault();
         document.body.classList.toggle('nav-hidden');
     });
 
@@ -17,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('touchstart', function(e) {
         startX = e.touches[0].pageX;
         isDragging = true;
-    });
+    }, { passive: true });
 
     document.addEventListener('touchmove', function(e) {
         if (!isDragging) return;
@@ -35,9 +41,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             isDragging = false;
         }
-    });
+    }, { passive: true });
 
     document.addEventListener('touchend', function() {
         isDragging = false;
+    }, { passive: true });
+
+    // 监听窗口大小变化
+    window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+            document.body.classList.add('nav-hidden');
+        }
     });
 }); 
