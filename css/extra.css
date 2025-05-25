@@ -12,4 +12,65 @@
     .rst-content {
         padding: 0 15px;
     }
+}
+
+/* 侧边栏切换按钮样式 */
+.sidebar-toggle {
+    position: fixed;
+    top: 0;
+    left: 300px;
+    z-index: 1000;
+    padding: 10px 15px;
+    background: #2980B9;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    transition: left 0.3s ease;
+}
+
+/* 侧边栏动画 */
+.wy-nav-side {
+    transition: transform 0.3s ease;
+}
+
+/* 内容区域动画 */
+.wy-nav-content-wrap {
+    transition: margin-left 0.3s ease;
+}
+
+/* 隐藏侧边栏时的样式 */
+body.nav-hidden .wy-nav-side {
+    transform: translateX(-300px);
+}
+
+body.nav-hidden .wy-nav-content-wrap {
+    margin-left: 0;
+}
+
+body.nav-hidden .sidebar-toggle {
+    left: 0;
+}
+
+/* 移动端样式调整 */
+@media screen and (max-width: 768px) {
+    .sidebar-toggle {
+        left: 0;
+    }
+
+    .wy-nav-side {
+        transform: translateX(-300px);
+    }
+
+    .wy-nav-content-wrap {
+        margin-left: 0;
+    }
+
+    body:not(.nav-hidden) .wy-nav-side {
+        transform: translateX(0);
+    }
+
+    body:not(.nav-hidden) .sidebar-toggle {
+        left: 300px;
+    }
 } 
