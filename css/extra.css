@@ -195,4 +195,48 @@ body.nav-hidden .sidebar-toggle:before {
     width: 5px;
     height: 1px;
     background: #bdc3c7;
-} 
+}
+
+/* 1. 进一步增加页面左右的最小边距 (通过容器的padding实现) */
+.md-container {
+  padding-left: 3rem;  /* 约48px */
+  padding-right: 3rem; /* 约48px */
+}
+
+/* 2. 内容区域的最大宽度设置 */
+:root {
+  --md-main-max-width: 90rem; /* 约 1440px */
+}
+
+.md-grid {
+  max-width: var(--md-main-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 针对更宽屏幕的媒体查询 */
+@media screen and (min-width: 100em) { /* 1600px 屏幕宽度 */
+  .md-grid {
+    max-width: 100rem; /* 约 1600px */
+  }
+}
+
+@media screen and (min-width: 120em) { /* 1920px 屏幕宽度 */
+  .md-grid {
+    max-width: 115rem; /* 约 1840px */
+  }
+}
+
+/* 3. 强制隐藏页脚 */
+.md-footer {
+  display: none !important;
+}
+
+/* If you want it to be almost full width on very large screens */
+/*
+@media screen and (min-width: 100em) { // 1600px
+  .md-grid {
+    max-width: 90vw; // 90% of viewport width
+  }
+}
+*/ 
