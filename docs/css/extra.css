@@ -1,0 +1,242 @@
+.wy-nav-content {
+    max-width: none !important;
+    width: 100% !important;
+}
+
+/* 调整内容区域的左右边距 */
+.rst-content {
+    padding: 0 30px;
+}
+
+/* 调整侧边栏宽度 */
+.wy-nav-side {
+    width: 260px !important;
+    background: #2c3e50 !important;
+    transition: transform 0.3s ease !important;
+    z-index: 1000 !important;
+}
+
+.wy-side-scroll {
+    width: 260px !important;
+}
+
+.wy-nav-content-wrap {
+    margin-left: 260px !important;
+    transition: margin-left 0.3s ease !important;
+}
+
+/* 隐藏侧边栏时的样式 */
+body.nav-hidden .wy-nav-side {
+    transform: translateX(-260px) !important;
+}
+
+body.nav-hidden .wy-nav-content-wrap {
+    margin-left: 0 !important;
+}
+
+/* 侧边栏切换按钮样式 - 更优雅的设计 */
+.sidebar-toggle {
+    position: fixed;
+    top: 70px;
+    left: 260px;
+    z-index: 1001;
+    width: 30px;
+    height: 30px;
+    background: #2980B9;
+    color: white;
+    border: none;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    padding: 0;
+}
+
+.sidebar-toggle:hover {
+    background: #3498db;
+}
+
+.sidebar-toggle:before {
+    content: "◀";
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+body.nav-hidden .sidebar-toggle {
+    left: 0 !important;
+}
+
+body.nav-hidden .sidebar-toggle:before {
+    content: "▶";
+}
+
+/* 优化左侧导航栏样式 */
+.wy-side-nav-search {
+    background-color: #3498db !important;
+    width: 260px !important;
+}
+
+.wy-menu-vertical {
+    width: 260px !important;
+}
+
+.wy-menu-vertical li.current {
+    background: #34495e !important;
+}
+
+.wy-menu-vertical li.current > a {
+    background: #2980b9 !important;
+    color: #fff !important;
+}
+
+.wy-menu-vertical li.toctree-l1 > a {
+    padding: 12px 15px !important;
+    color: #ecf0f1 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.wy-menu-vertical li.toctree-l2 > a {
+    padding: 8px 25px !important;
+    background: #34495e !important;
+    color: #bdc3c7 !important;
+}
+
+.wy-menu-vertical li.toctree-l2.current > a {
+    background: #2980b9 !important;
+    color: #fff !important;
+}
+
+.wy-menu-vertical li.toctree-l1:hover {
+    background: #34495e;
+}
+
+.wy-menu-vertical li.toctree-l1 > a:hover {
+    background: #2980b9 !important;
+    color: #fff !important;
+}
+
+/* 搜索框样式 */
+.wy-side-nav-search input[type="text"] {
+    border-radius: 20px;
+    padding: 10px 15px;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    width: calc(260px - 40px) !important;
+}
+
+/* Previous/Next 导航按钮样式 */
+.rst-footer-buttons {
+    margin-top: 30px;
+}
+
+.rst-footer-buttons .btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: normal;
+}
+
+/* 移动端样式调整 */
+@media screen and (max-width: 768px) {
+    .rst-content {
+        padding: 0 15px;
+    }
+
+    .wy-nav-side {
+        width: 260px !important;
+        transform: translateX(-260px);
+    }
+
+    .wy-nav-content-wrap {
+        margin-left: 0 !important;
+    }
+
+    .sidebar-toggle {
+        top: 15px;
+        left: 0;
+        border-radius: 0 3px 3px 0;
+    }
+
+    body:not(.nav-hidden) .wy-nav-side {
+        transform: translateX(0) !important;
+    }
+
+    body:not(.nav-hidden) .sidebar-toggle {
+        left: 260px;
+    }
+}
+
+/* 当前选中项的样式 */
+.wy-menu-vertical li.current > a.current {
+    background: #2980b9 !important;
+    color: #fff !important;
+    border-right: 3px solid #ecf0f1;
+}
+
+/* 子菜单缩进和过渡效果 */
+.wy-menu-vertical li.toctree-l2 {
+    margin-left: 0;
+    transition: background 0.2s ease;
+}
+
+.wy-menu-vertical li.toctree-l2 > a {
+    position: relative;
+    padding-left: 35px !important;
+}
+
+.wy-menu-vertical li.toctree-l2 > a:before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    width: 5px;
+    height: 1px;
+    background: #bdc3c7;
+}
+
+/* 1. 进一步增加页面左右的最小边距 (通过容器的padding实现) */
+.md-container {
+  padding-left: 3rem;  /* 约48px */
+  padding-right: 3rem; /* 约48px */
+}
+
+/* 2. 内容区域的最大宽度设置 */
+:root {
+  --md-main-max-width: 90rem; /* 约 1440px */
+}
+
+.md-grid {
+  max-width: var(--md-main-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 针对更宽屏幕的媒体查询 */
+@media screen and (min-width: 100em) { /* 1600px 屏幕宽度 */
+  .md-grid {
+    max-width: 100rem; /* 约 1600px */
+  }
+}
+
+@media screen and (min-width: 120em) { /* 1920px 屏幕宽度 */
+  .md-grid {
+    max-width: 115rem; /* 约 1840px */
+  }
+}
+
+/* 3. 强制隐藏页脚 */
+.md-footer {
+  display: none !important;
+}
+
+/* If you want it to be almost full width on very large screens */
+/*
+@media screen and (min-width: 100em) { // 1600px
+  .md-grid {
+    max-width: 90vw; // 90% of viewport width
+  }
+}
+*/ 

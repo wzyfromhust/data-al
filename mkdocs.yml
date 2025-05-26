@@ -1,0 +1,90 @@
+site_name: Python 数据结构与算法视频教程
+theme:
+    name: material
+    #    custom_dir: docs/custom_theme
+    palette:
+      # Palette toggle for light mode
+      - scheme: default
+        primary: teal
+        accent: amber
+        toggle:
+          icon: material/brightness-7
+          name: Switch to dark mode
+      # Palette toggle for dark mode
+      - scheme: slate
+        primary: teal
+        accent: amber
+        toggle:
+          icon: material/brightness-4
+          name: Switch to light mode
+    features:
+      # - navigation.tabs
+      - navigation.sections
+      - navigation.expand
+      - navigation.top
+      - search.suggest
+      - search.highlight
+      - content.code.annotate
+      - content.code.copy
+      # - content.code.select # 取消了这个，因为它和 copy 按钮有点重复
+    font:
+      text: Roboto
+      code: Roboto Mono
+    hide:
+      # - navigation
+      - footer
+
+extra_css:
+    - css/extra.css
+
+# extra_javascript:
+#     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+#     - js/custom.js
+
+markdown_extensions:
+  - mdx_math:
+      enable_dollar_delimiter: True  #for use of inline $..$
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_style: friendly
+      # linenums: true # Material 主题会自动处理行号，如果通过 features 启用
+      # auto_title: true # Material 主题会自动处理代码块标题
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+    - 课程简介: 'index.md'
+    - 笨方法学算法: '00_课程简介之笨方法学算法/why_and_how_to_learn.md' # 修改标题
+    - 抽象数据类型和面向对象编程: '01_抽象数据类型和面向对象编程/ADT_OOP.md' # 修改标题
+    - 数组和列表: '02_数组和列表/array_and_list.md' # 修改标题
+    - 链表: '03_链表/linked_list.md' # 修改标题
+    - 队列: '04_队列/queue.md' # 修改标题
+    - 栈: '05_栈/stack.md' # 修改标题
+    - 算法分析: '06_算法分析/big_o.md' # 修改标题
+    - 哈希表: '07_哈希表/hashtable.md' # 修改标题
+    - 字典: '08_字典/dict.md' # 修改标题
+    - 集合: '09_集合/set.md' # 修改标题
+    - 递归: '10_递归/recursion.md' # 修改标题
+    - 线性查找与二分查找: '11_线性查找与二分查找/search.md' # 修改标题
+    - 基本排序算法: '12_基本排序算法/basic_sort.md' # 修改标题
+    - 高级排序算法:
+      - 概述: '13_高级排序算法/advanced_sorting.md' # 修改标题
+      - 分治法与归并排序: '13_高级排序算法/merge_sort.md'
+      - 快速排序: '13_高级排序算法/quick_sort.md'
+    - 树与二叉树: '14_树与二叉树/tree.md' # 修改标题
+    - 堆和堆排序: '15_堆与堆排序/heap_and_heapsort.md' # 修改标题
+    - 优先级队列: '16_优先级队列/priority_queue.md' # 修改标题
+    - 二叉查找树: '17_二叉查找树/binary_search_tree.md' # 修改标题
+    - 图与图的遍历: '18_图与图的遍历/graph.md' # 修改标题
+    - Python内置常用算法和数据结构: '19_python内置常用算法和数据结构/builtins.md' # 修改标题
+    - 面试指南: '20_面试指南/interview.md' # 修改标题
